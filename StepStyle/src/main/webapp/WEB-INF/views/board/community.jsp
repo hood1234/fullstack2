@@ -47,30 +47,49 @@
         </div>
       </div>
     </header>
-    <div class="board">
-      <div>
-        <h2>자유게시판</h2>
-        <button><a href="${pageContext.request.contextPath}/board/write.do">글 작성</a></button>
-      </div>
-      <table border="0" width="100%">
-        <tr>
-          <td>번호</td>
-          <td style="text-align: center">제목</td>
-          <td>작성자</td>
-          <td>작성일</td>
-          <td>조회수</td>
-        </tr>
-      <c:forEach items="${community}" var="board">
-		<tr>
-			<td>${board.bidx }</td>
-			<td><a href="view.do?bidx=${board.bidx}">${board.title }</a></td>
-			<td>${board.uId } </td>
-			<td>${board.wdate }</td>
-			<td>${board.hit }</td>
-		</tr>
-	</c:forEach>
-      </table>
-      <p>&lt; 1 2 3 4 5 6 7 8 9 &gt;</p>
+  <div class="board">
+        <div>
+            <h2>자유게시판</h2>
+            <button><a href="${pageContext.request.contextPath}/board/write.do">글 작성</a></button>
+        </div>
+        <table border="0" width="100%">
+            <tr>
+                <td>번호</td>
+                <td style="text-align: center">제목</td>
+                <td>작성자</td>
+                <td>작성일</td>
+                <td>조회수</td>
+            </tr>
+            <!-- 게시물 목록 표시 -->
+            <c:forEach items="${community}" var="board">
+                <tr>
+                    <td>${board.bidx}</td>
+                    <td><a href="view.do?bidx=${board.bidx}">${board.title}</a></td>
+                    <td>${board.uId}</td>
+                    <td>${board.wdate}</td>
+                    <td>${board.hit}</td>
+                </tr>
+            </c:forEach>
+            <!-- 검색 결과 표시 -->
+            <c:if test="${not empty searchResult}">
+                <c:forEach items="${searchResult}" var="result">
+                    <tr>
+                        <td>${result.bidx}</td>
+                        <td><a href="view.do?bidx=${result.bidx}">${result.title}</a></td>
+                        <td>${result.uId}</td>
+                        <td>${result.wdate}</td>
+                        <td>${result.hit}</td>
+                    </tr>
+                </c:forEach>
+            </c:if>
+        </table>
+        <div class="submitBox">
+            <!-- 검색 폼 -->
+            <form action="${pageContext.request.contextPath}/board/search.do" method="get">
+                <input type="text" name="keyword" placeholder="검색어를 입력하세요" /><button><i class="fa fa-search" aria-hidden="true"></i></button>
+            </form>
+        </div>
+        <p>&lt; 1 2 3 4 5 6 7 8 9 &gt;</p>
     </div>
     <footer>
       <div class="full_box">

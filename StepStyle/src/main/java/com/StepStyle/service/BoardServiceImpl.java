@@ -24,34 +24,31 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public BoardVO getBoardById(int bidx) {
-		return boardDAO.getBoardById(bidx);
+	public void insertBoard(BoardVO vo) {
+		boardDAO.insertBoard(vo);
 	}
 
-	@Override
-	public void insertBoard(BoardVO board) {
-		boardDAO.insertBoard(board);
-	}
-
-	@Override
-	public void updateBoard(BoardVO board) {
-		boardDAO.updateBoard(board);
-	}
-
+	 @Override
+	    public int updateBoard(BoardVO vo) {
+	        return boardDAO.updateBoard(vo);
+	    }
 	
-
-	@Override
-	public void writeBoard(BoardVO board) {
-		   boardDAO.insertBoard(board);
-		
-	}
-
 	@Override
 	public int deleteBoard(int bidx) {
 		
 		return boardDAO.deleteBoard(bidx);
 	
 	}
+
+	@Override
+	public BoardVO selectOneByBidx(int bidx) {
+		return boardDAO.selectOneByBidx(bidx);
+	}
+
+	@Override
+    public List<BoardVO> searchBoardByKeyword(String keyword) {
+        return boardDAO.searchBoardByKeyword(keyword);
+    }
 
 
 

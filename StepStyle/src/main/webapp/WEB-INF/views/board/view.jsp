@@ -73,7 +73,7 @@
 								
 		       
 			
-			<button class="butn">수정하기</button>
+			<button class="butn" onclick="location.href='${pageContext.request.contextPath}/board/modify.do?bidx=${board.bidx}'">수정하기</button>
 			<button class="butn" id="deleteButton">삭제하기</button>
 			
 		</div>

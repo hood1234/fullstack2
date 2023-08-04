@@ -7,10 +7,10 @@ import com.StepStyle.vo.BoardVO;
 public interface BoardService {
 
     List<BoardVO> getBoardList();
-    BoardVO getBoardById(int bidx);
-    void insertBoard(BoardVO board);
-    void updateBoard(BoardVO board);
+    void insertBoard(BoardVO vo);
+    int updateBoard(BoardVO vo);
     int deleteBoard(int bidx);
-    void writeBoard(BoardVO board);
+	BoardVO selectOneByBidx(int bidx);
+	List<BoardVO> searchBoardByKeyword(String keyword);
 }
 

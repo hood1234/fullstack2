@@ -2,6 +2,7 @@ package com.StepStyle.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -23,6 +24,7 @@ import com.StepStyle.vo.BoardVO;
 @RequestMapping("/board")
 public class BoardController {
 
+	
     @Autowired
     private BoardService boardService;
 
@@ -33,9 +35,21 @@ public class BoardController {
         return "board/community";
     }
     
+    @RequestMapping(value = "/search.do", method = RequestMethod.GET)
+    public String searchBoard(@RequestParam("keyword") String keyword, Model model) {
+        // 검색어를 통해 게시물을 검색합니다.
+        List<BoardVO> searchResult = boardService.searchBoardByKeyword(keyword);
+
+        // 검색 결과를 모델에 추가하여 JSP에서 사용할 수 있도록 합니다.
+        model.addAttribute("community", searchResult);
+
+        // community.jsp로 이동합니다. (검색 결과를 표시하기 위함)
+        return "board/community";
+    }
+    
     @RequestMapping("/view.do")
     public String viewBoard(@RequestParam("bidx") int bidx, Model model) {
-        BoardVO board = boardService.getBoardById(bidx);
+        BoardVO board = boardService.selectOneByBidx(bidx); // 변경된 부분
         model.addAttribute("board", board);
         return "board/view";
     }
@@ -59,11 +73,11 @@ public class BoardController {
     
     
     @RequestMapping(value = "/write.do", method = RequestMethod.POST)
-    public String writeBoard(@ModelAttribute BoardVO board) {
+    public String insertBoard(@ModelAttribute BoardVO vo) {
     	 // 글 작성 시간을 현재 시간으로 설정
-        board.setWdate(new Date());
+    	vo.setWdate(new Date());
         // 글 작성을 위한 서비스 메서드를 호출하여 데이터베이스에 글 저장하기
-        boardService.writeBoard(board);
+        boardService.insertBoard(vo);
         return "redirect:/board/community.do"; // 글 작성 후, 목록 페이지로 리다이렉트
     }
     
@@ -83,5 +97,36 @@ public class BoardController {
         // 삭제 후 커뮤니티 페이지로 리다이렉트
         return "redirect:/board/community.do";
     }
+    
+    @RequestMapping(value = "/modify", method = RequestMethod.GET)
+    public String showUpdateForm(@RequestParam("bidx") int bidx, Model model) {
+        BoardVO board = boardService.selectOneByBidx(bidx);
+        if (board != null) {
+            model.addAttribute("board", board);
+            return "board/modify"; // 수정 페이지를 보여줍니다.
+        } else {
+            // 해당 게시글이 없을 경우에 대한 예외 처리 로직
+            return "error"; // 예외 처리 페이지를 보여줍니다.
+        }
+    }
 
+    // 게시글 수정 처리를 위한 핸들러
+    @RequestMapping(value = "/modify", method = RequestMethod.POST)
+    public String updateBoard(@ModelAttribute BoardVO vo, Model model) {
+        // 현재 시간을 설정하여 wdate 값을 갱신
+        vo.setWdate(new Date());
+
+        int result = boardService.updateBoard(vo);
+        if (result > 0) {
+            // 수정 성공 시 메시지를 모델에 추가하여 화면에 보여줌
+            model.addAttribute("message", "수정되었습니다.");
+        } else {
+            // 수정 실패 시 메시지를 모델에 추가하여 화면에 보여줌
+            model.addAttribute("message", "수정되지 않았습니다.");
+        }
+        // 수정 후 상세 페이지로 리다이렉트
+        return "redirect:/board/view.do?bidx=" + vo.getBidx();
+    }
+    
+ 
 }

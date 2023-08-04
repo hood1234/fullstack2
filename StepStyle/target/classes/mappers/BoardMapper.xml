@@ -6,25 +6,40 @@
 <mapper namespace="com.StepStyle.mapper.BoardMapper">
 
 <!-- 게시글 목록 조회 -->
-<select id="getBoardList" resultType="com.StepStyle.vo.BoardVO">
-    SELECT * FROM boardTB2
-</select>
-<!-- 게시글 상세 정보 조회 -->
-    <select id="getBoardById" parameterType="int" resultType="com.StepStyle.vo.BoardVO">
-        SELECT * FROM boardTB2 WHERE bidx = #{bidx}
-    </select>
+	<select id="getBoardList" resultType="com.StepStyle.vo.BoardVO">
+	    SELECT * FROM boardTB2 ORDER BY wdate DESC;
+	</select>
+
 <!-- 게시글 추가 -->
-<insert id="insertBoard" parameterType="com.StepStyle.vo.BoardVO">
-    INSERT INTO boardTB2 (title, wdate, body, hit, uId)
-    VALUES (#{title}, #{wdate}, #{body}, #{hit}, #{uId})
-</insert>
+	<insert id="insertBoard" parameterType="com.StepStyle.vo.BoardVO">
+	    INSERT INTO boardTB2 (title, wdate, body, hit, uId)
+	    VALUES (#{title}, #{wdate}, #{body}, #{hit}, #{uId})
+	</insert>
 
- <!-- 게시글 삭제 쿼리 -->
-    <delete id="deleteBoard">
-        DELETE FROM boardTB2
-        WHERE bidx = #{bidx}
-    </delete>
+<!-- 게시글 삭제 쿼리 -->
+	<delete id="deleteBoard">
+		        DELETE FROM boardTB2
+		        WHERE bidx = #{bidx}
+	</delete>
+	
+<!-- 게시글 상세 정보 조회 -->
+	<select id="selectOneByBidx" parameterType="int" resultType="com.StepStyle.vo.BoardVO">
+	    SELECT * FROM boardTB2 WHERE bidx = #{bidx}
+	</select>
 
+<!-- 게시글 수정 -->
+	<update id="updateBoard" parameterType="com.StepStyle.vo.BoardVO">
+	    UPDATE boardTB2
+	    SET title = #{title}, body = #{body}, wdate = #{wdate}
+	    WHERE bidx = #{bidx}
+	</update>
+<!-- 게시글 검색 -->
+    <select id="searchBoardByKeyword" parameterType="String" resultType="com.StepStyle.vo.BoardVO">
+        SELECT * FROM boardTB2
+        WHERE title LIKE CONCAT('%', #{keyword}, '%')
+           OR body LIKE CONCAT('%', #{keyword}, '%')
+        ORDER BY wdate DESC;
+    </select>
 
 
 </mapper>

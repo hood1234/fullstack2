@@ -21,19 +21,23 @@ public class BoardDAO {
         return sqlSession.selectList(namespace + ".getBoardList");
     }
 
-    public BoardVO getBoardById(int bidx) {
-        return sqlSession.selectOne(namespace + ".getBoardById", bidx);
+    public void insertBoard(BoardVO vo) {
+        sqlSession.insert(namespace + ".insertBoard", vo);
     }
 
-    public void insertBoard(BoardVO board) {
-        sqlSession.insert(namespace + ".insertBoard", board);
-    }
-
-    public void updateBoard(BoardVO board) {
-        sqlSession.update(namespace + ".updateBoard", board);
+    public int updateBoard(BoardVO vo) {
+        return sqlSession.update(namespace + ".updateBoard", vo);
     }
 
     public int deleteBoard(int bidx) {
         return sqlSession.delete(namespace + ".deleteBoard", bidx);
     }
+
+	public BoardVO selectOneByBidx(int bidx) {
+		return sqlSession.selectOne(namespace + ".selectOneByBidx",bidx);
+	}
+
+	public List<BoardVO> searchBoardByKeyword(String keyword) {
+		return sqlSession.selectList(namespace + ".searchBoardByKeyword", keyword);
+	}
 }
