@@ -54,6 +54,7 @@
         </div>
         <table border="0" width="100%">
             <tr>
+            
                 <td>번호</td>
                 <td style="text-align: center">제목</td>
                 <td>작성자</td>
