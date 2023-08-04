@@ -23,7 +23,7 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
-	
+	//ë¡œê·¸ì¸ 
 	@RequestMapping(value="/login.do",method=RequestMethod.GET)
 	public String login() {
 		return "user/login";
@@ -41,25 +41,52 @@ public class UserController {
 		
 		
 		if(loginVO != null) {
-			//loginÇÒ È¸¿øÀÌ µ¥ÀÌÅÍº£ÀÌ½º¿¡ Á¸Àç
-			System.out.println("È¸¿øÁ¸Àç");
+			//loginí•  íšŒì›ì´ ë°ì´í„°ë² ì´ìŠ¤ì— ì¡´ì¬
+			System.out.println("íšŒì›ì¡´ì¬");
 			
 			session.setAttribute("login", loginVO);
-			pw.append("<script>alert('·Î±×ÀÎ¿¡ ¼º°øÇß½À´Ï´Ù.');location.href='"+req.getContextPath()+"/';</script>");
+			pw.append("<script>alert('ë¡œê·¸ì¸ì— ì„±ê³µí–ˆìŠµë‹ˆë‹¤.');location.href='"+req.getContextPath()+"/';</script>");
 			
 		}else {
-			//loginÇÒ È¸¿øÀÌ µ¥ÀÌÅÍº£ÀÌ½º¿¡ Á¸Àç X
-			System.out.println("È¸¿øÁ¸Àç X");
-			pw.append("<script>alert('·Î±×ÀÎ¿¡ ½ÇÆĞÇß½À´Ï´Ù.');location.href='"+req.getContextPath()+"/user/login.do';</script>");
+			//loginí•  íšŒì›ì´ ë°ì´í„°ë² ì´ìŠ¤ì— ì¡´ì¬ X
+			System.out.println("íšŒì›ì¡´ì¬ X");
+			pw.append("<script>alert('ë¡œê·¸ì¸ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.');location.href='"+req.getContextPath()+"/user/login.do';</script>");
 		}
 		
 		pw.flush();
 	}
 	
-	@RequestMapping(value="/join.do")
-	public String join()
-	{
+	// íšŒì› ê°€ì… 
+	@RequestMapping(value = "/checkId.do", method = RequestMethod.POST)
+	@ResponseBody
+	public String checkId(String uId) {
+		System.out.println("uId = " + uId);
+		int result = userService.selectCntById(uId);
+		System.out.println("result(DBì— ìˆëŠ” ì•„ì´ë”” ê°¯ìˆ˜) = " + result);
+		return result + "";
+	}
+
+	@RequestMapping(value = "/join.do", method = RequestMethod.GET)
+	public String join() {
+
+		System.out.println("ì¡°ì¸ìœ¼ë¡œ ì´ë™ ë©”ì†Œë“œ ì‹¤í–‰");
 		return "user/join";
+	}
+
+	@RequestMapping(value = "/join.do", method = RequestMethod.POST)
+	public String join(UserVO vo) {
+
+		System.out.println("íšŒì›ê°€ì… post ë©”ì†Œë“œ ì‹¤í–‰");
+		System.out.println(vo.toString());
+		
+		int result = userService.insert(vo);
+
+		if (result > 0) {
+			System.out.println("íšŒì›ê°€ì…ì„±ê³µ");
+		} else {
+			System.out.println("íšŒì›ê°€ì…ì‹¤íŒ¨");
+		}
+		return "redirect:login.do";
 	}
 	
 	

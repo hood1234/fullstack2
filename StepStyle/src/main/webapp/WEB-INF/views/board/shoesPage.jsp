@@ -13,18 +13,18 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/shoesPage.css">
 </head>
 <body>
+	<!------------------------------------------nav------------------------------------>
 	<header>
 		<div class="wrap">
 			<div class="main_nav">
 				<div class="navBox">
 					<h1>
-						<a href="${pageContext.request.contextPath}/">
-						<img src="${pageContext.request.contextPath}/resources/img/stepstyle.png" alt="메인로고" width="124px" height="54px"/></a>
+						<a href="${pageContext.request.contextPath}/"><img src="${pageContext.request.contextPath}/resources/img/stepstyle.png" alt="메인로고" width="124px" height="54px"/></a>
 					</h1>
 					<nav>
 						<ul class="nav">
 							<li><a href="${pageContext.request.contextPath}/board/shoesPage.do">SHOES</a></li>
-							<li><a href="">STYLE</a></li>
+							<li><a href="${pageContext.request.contextPath}/board/stylePage.do">STYLE</a></li>
 							<li><a href="">DROP</a></li>
 							<li><a href="${pageContext.request.contextPath}/board/community.do">COMMUNITY</a></li>
 						</ul>
@@ -40,7 +40,9 @@
 			</div>
 		</div>
 	</header>
+	<!------------------------------------------main------------------------------------>
 	<div class="container">
+		<!--필터-->
 		<div class="box-container">
 			<div class="filterBox">
 				<div class="filter">
@@ -54,13 +56,14 @@
 					<span>Converse</span>
 				</div>
 			</div>
+			<!--우리 신발들-->
 			<div class="shoesBox">
 				<div class="shoes">
 					<p>브랜드</p>
 					<form action="">
 						<div class="itemBox">
 							<div class="item">
-								<a href="${pageContext.request.contextPath}/board/shoesDetaPage.do">
+								<a href="${pageContext.request.contextPath}/board/shoesDataPage.do">
 									<div class="img">
 										<img src="${pageContext.request.contextPath}/resources/img/hot-slid1.png" alt="sud_img1" />
 									</div>
@@ -305,6 +308,7 @@
 			</div>
 		</div>
 	</div>
+	<!--footer------------------------------------------------>
 	<footer>
       <div class="full_box">
         <div class="Information_box">

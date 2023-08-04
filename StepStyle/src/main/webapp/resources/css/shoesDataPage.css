@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-
 body {
   line-height: 1;
   width: 100%;
@@ -145,6 +144,8 @@ header {
 }
 .text {
 	margin-left: 80px;
+	width: 580px;
+	overflow: auto;
 }
 .text1{
 	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
@@ -156,7 +157,7 @@ header {
 	margin: 10px 0;
 	font-size: 18px;
 }
-.text span{
+.text1 span{
 	font-size: 14px;
 	color: rgba(34, 34, 34, 0.5);
 	display: inline-block;
@@ -214,6 +215,9 @@ header {
 .style{
 	padding-top: 30px;
 }
+.grid-item{
+	width: 280px;
+}
 .styleBox > div{
 	display: flex;
 	justify-content: space-between;
@@ -225,7 +229,7 @@ header {
 	padding: 20px 0 20px;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
-.style > img {
+.style img {
 	width: 280px;
 	height: 280px;
 	border-radius: 15px;
@@ -236,6 +240,71 @@ header {
 }
 .nname{
 	color: rgba(34, 34, 34, 0.5);;
+}
+.commentBox{
+	width: 100%;
+	height: 520px;
+	border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+.commen{
+	font-size: 18px;
+	font-weight: bold;
+	padding: 20px 0 1px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+.comment > img{
+	width: 34px;
+	height: 34px;
+	border-radius: 50%;
+	border: 1px solid rgba(34,34,34,.1);
+}
+.comment > p{
+	margin: 0;
+}
+.user{
+	color: #000;
+	font-weight: bold;
+	font-size: 14px;
+	white-space: nowrap;
+	padding-left: 8px;
+}
+.comment{
+	padding: 13px 0;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+	font-size: 14px;
+	display: flex;
+	align-items: center;
+}
+.comment >p:last-child{
+	margin-left: 10px;
+}
+.comment-section{
+	height: 370px;
+}
+.comment-btn{
+	position: relative;
+	margin-top: 13px;
+}
+.comment-btn input:nth-child(1){
+	width: 560px;
+  height: 40px;
+  font-size: 12px;
+  border: 0;
+  border-radius: 15px;
+  outline: none;
+  padding-left: 10px;
+  background-color: #fafafa;
+	border: 1px solid rgba(34,34,34,.1);
+}
+.comment-btn input:nth-child(2){
+	position: absolute;
+	right: 15px;
+	top: 10px;
+	border: none;
+	background-color: rgba(0, 0, 0, 0);
+	font-size: 15px;
+	font-weight: bold;
+	cursor: pointer;
 }
 /*------------modal---------------------------------------------------*/
 
@@ -311,7 +380,7 @@ header {
 	color: red;
 	font-size: 12px;
 }
-/*------------------------------------------------------------------*/
+/*----------------------------------footer--------------------------------*/
 footer{
 	z-index: 9;
 }

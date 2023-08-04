@@ -1,39 +1,45 @@
 package com.StepStyle.vo;
 
 public class UserVO {
-	private int uNo;
+	
+	private int uNo ;
 	private String uId ;
 	private String uPw ;
 	private String uName ;
-	private String uNick;
-	private String uMail ;
+	private String uNick ;
 	private String uPhone ;
+	private String uMail ;
 	private String uAdr ;
 	private String uGrade ;
+	private String uDel ;
 	
 	/*
-	 * private String uTerms ; 
-	 * private String uDel ; 
-	 * private String uNaver ; 
-	 * private String uKakao ;
+	 * private String uTerms ; private String uDel ; private String uNaver ; private
+	 * String uKakao ;
 	 */
-	
-	
-	
-	
 	
 	
 	public int getuNo() {
 		return uNo;
 	}
+
+	@Override
+	public String toString() {
+		return "UserVO [uNo=" + uNo + ", uId=" + uId + ", uPw=" + uPw + ", uName=" + uName + ", uNick=" + uNick
+				+ ", uPhone=" + uPhone + ", uMail=" + uMail + ", uAdr=" + uAdr + ", uGrade=" + uGrade + ", uDel=" + uDel
+				+ "]";
+	}
+
+	public void setuNo(int uNo) {
+		this.uNo = uNo;
+	}
+	
 	public String getuNick() {
 		return uNick;
 	}
+	
 	public void setuNick(String uNick) {
 		this.uNick = uNick;
-	}
-	public void setuNo(int uNo) {
-		this.uNo = uNo;
 	}
 	
 	public String getuId() {
@@ -78,20 +84,12 @@ public class UserVO {
 	public void setuGrade(String uGrade) {
 		this.uGrade = uGrade;
 	}
-	
-	
-	
-	@Override
-	public String toString() {
-		return "UserVO [uNo=" + uNo + ", uId=" + uId + ", uPw=" + uPw + ", uName=" + uName + ", uNick=" + uNick
-				+ ", uMail=" + uMail + ", uPhone=" + uPhone + ", uAdr=" + uAdr + ", uGrade=" + uGrade + "]";
+	public String getuDel() {
+		return uDel;
 	}
-	
-	
-	
-	
-	
-	
+	public void setuDel(String uDel) {
+		this.uDel = uDel;
+	}
 	
 	
 

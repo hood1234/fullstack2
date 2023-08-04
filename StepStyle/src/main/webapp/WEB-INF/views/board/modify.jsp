@@ -52,14 +52,14 @@
                             height="54px"
                             /></a>
                 </h1>
-                <nav>
-                    <ul class="nav">
-                        <li><a href="${pageContext.request.contextPath}/board/shoesPage.do">SHOES</a></li>
-                        <li><a href="">STYLE</a></li>
-                        <li><a href="">DROP</a></li>
-                        <li><a href="${pageContext.request.contextPath}/board/community.do">COMMUNITY</a></li>
-                    </ul>
-                </nav>
+               <nav>
+						<ul class="nav">
+							<li><a href="${pageContext.request.contextPath}/board/shoesPage.do">SHOES</a></li>
+							<li><a href="${pageContext.request.contextPath}/board/stylePage.do">STYLE</a></li>
+							<li><a href="">DROP</a></li>
+							<li><a href="${pageContext.request.contextPath}/board/community.do">COMMUNITY</a></li>
+						</ul>
+					</nav>
             </div>
             <div class="submitBox">
                 <a href="${pageContext.request.contextPath}/user/login.do"

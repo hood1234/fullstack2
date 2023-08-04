@@ -10,7 +10,7 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
   />
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/shoesDetaPage.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/shoesDataPage.css">
 </head>
 <body>
 	<header>
@@ -23,7 +23,7 @@
 					<nav>
 						<ul class="nav">
 							<li><a href="${pageContext.request.contextPath}/board/shoesPage.do">SHOES</a></li>
-							<li><a href="">STYLE</a></li>
+							<li><a href="${pageContext.request.contextPath}/board/stylePage.do">STYLE</a></li>
 							<li><a href="">DROP</a></li>
 							<li><a href="${pageContext.request.contextPath}/board/community.do">COMMUNITY</a></li>
 						</ul>
@@ -52,6 +52,7 @@
 				</div>
 			</div>
 			<div class="textBox">
+				<!--신발정보-->
 				<div class="text">
 					<div class="text1">
 						<h2>Adidas</h2>
@@ -98,59 +99,119 @@
 							</div>
 						</div>
 					</div>
+					<!--코멘트-->
+					<div class="commentBox">
+						<div class="commen">
+							<p>Comments</p>
+						</div>
+						<div class="comment-section" style="overflow: auto;">
+							<div class="comment">
+								<img src="https://kream.co.kr/images/account_img_default.png?type=sl" alt="">
+								<p class="user">개똥벌레</p>
+								<p>이거 실물 미침..이머ㅜ멈d무 이쁘다 진뭉d이거 실물 미침..이머ㅜ멈d무 이쁘다 진뭉d이거 실물 미침..이머ㅜ멈d무 이쁘다 진뭉d이거 실물 미침..이머ㅜ멈d무 이쁘다 진뭉d</p>
+							</div>
+							<div class="comment">
+								<img src="https://kream.co.kr/images/account_img_default.png?type=sl" alt="">
+								<p class="user">개똥벌레</p>
+								<p>이거 실물 미침..</p>
+							</div>
+							<div class="comment">
+								<img src="https://kream.co.kr/images/account_img_default.png?type=sl" alt="">
+								<p class="user">개똥벌레</p>
+								<p>이거 실물 미침..</p>
+							</div>
+							<div class="comment">
+								<img src="https://kream.co.kr/images/account_img_default.png?type=sl" alt="">
+								<p class="user">개똥벌레</p>
+								<p>이거 실물 미침..</p>
+							</div>
+							<div class="comment">
+								<img src="https://kream.co.kr/images/account_img_default.png?type=sl" alt="">
+								<p class="user">개똥벌레</p>
+								<p>이거 실물 미침..</p>
+							</div>
+							<div class="comment">
+								<img src="https://kream.co.kr/images/account_img_default.png?type=sl" alt="">
+								<p class="user">개똥벌레</p>
+								<p>이거 실물 미침..</p>
+							</div>
+							<div class="comment">
+								<img src="https://kream.co.kr/images/account_img_default.png?type=sl" alt="">
+								<p class="user">개똥벌레</p>
+								<p>이거 실물 미침..</p>
+							</div>
+							<div class="comment">
+								<img src="https://kream.co.kr/images/account_img_default.png?type=sl" alt="">
+								<p class="user">개똥벌레</p>
+								<p>이거 실물 미침..</p>
+							</div>
+							<div class="comment">
+								<img src="https://kream.co.kr/images/account_img_default.png?type=sl" alt="">
+								<p class="user">개똥벌레</p>
+								<p>이거 실물 미침..</p>
+							</div>
+							<div class="comment">
+								<img src="https://kream.co.kr/images/account_img_default.png?type=sl" alt="">
+								<p class="user">개똥벌레</p>
+								<p>이거 실물 미침..</p>
+							</div>
+							<div class="comment">
+								<img src="https://kream.co.kr/images/account_img_default.png?type=sl" alt="">
+								<p class="user">개똥벌레</p>
+								<p>이거 실물 미침..</p>
+							</div>
+						</div>
+						<div class="comment-btn">
+							<input type="text" name="" id="" placeholder="댓글을 남기세요...">
+							<input type="button" name="" id="" value="등록">
+						</div>
+					</div>
 					<div style="border-bottom: 1px solid rgba(0, 0, 0, 0.08);"></div>
+					<!--스타일 사진-->
 					<div class="styleBox">
 						<p>스타일</p>
-						<div>
-							<div class="style">
-								<img src="${pageContext.request.contextPath}/resources/img/style.jpeg" alt="스타일사진">
-								<p class="nname">개똥벌레</p>
-								<p>예뻐요...!쵴고</p>
+						<div class="masonry grid">
+							<div class="style grid-item">
+								<a href="">
+									<img src="${pageContext.request.contextPath}/resources/img/style.jpeg" alt="스타일사진">
+									<p class="nname">개똥벌레</p>
+									<p>예뻐요...!쵴고</p>
+								</a>
 							</div>
-							<div class="style">
-								<img src="${pageContext.request.contextPath}/resources/img/style2.png" alt="스타일사진">
-								<p class="nname">개똥벌레</p>
-								<p>예뻐요...!쵴고</p>
+							<div class="style grid-item">
+								<a href="">
+									<img src="${pageContext.request.contextPath}/resources/img/style2.png" alt="스타일사진">
+									<p class="nname">개똥벌레</p>
+									<p>예뻐요...!쵴고</p>
+								</a>
 							</div>
-							<div class="style">
-								<img src="${pageContext.request.contextPath}/resources/img/style3.png" alt="스타일사진">
-								<p class="nname">개똥벌레</p>
-								<p>예뻐요...!쵴고</p>
+							<div class="style grid-item">
+								<a href="">
+									<img src="${pageContext.request.contextPath}/resources/img/style.jpeg" alt="스타일사진">
+									<p class="nname">개똥벌레</p>
+									<p>예뻐요...!쵴고</p>
+								</a>
 							</div>
-							<div class="style">
-								<img src="${pageContext.request.contextPath}/resources/img/style4.png" alt="스타일사진">
-								<p class="nname">개똥벌레</p>
-								<p>예뻐요...!쵴고fsdfdsfdfsdfdsfsdfsdfsdfdsfds</p>
+							<div class="style grid-item">
+								<a href="">
+									<img src="${pageContext.request.contextPath}/resources/img/style.jpeg" alt="스타일사진">
+									<p class="nname">개똥벌레</p>
+									<p>예뻐요...!쵴고</p>
+								</a>
 							</div>
-							<div class="style">
-								<img src="${pageContext.request.contextPath}/resources/img/style1.png" alt="스타일사진">
-								<p class="nname">개똥벌레</p>
-								<p>예뻐요...!쵴고</p>
+							<div class="style grid-item">
+								<a href="">
+									<img src="${pageContext.request.contextPath}/resources/img/style.jpeg" alt="스타일사진">
+									<p class="nname">개똥벌레</p>
+									<p>예뻐요...!쵴고</p>
+								</a>
 							</div>
-							<div class="style">
-								<img src="${pageContext.request.contextPath}/resources/img/style.jpeg" alt="스타일사진">
-								<p class="nname">개똥벌레</p>
-								<p>예뻐요...!쵴고</p>
-							</div>
-							<div class="style">
-								<img src="${pageContext.request.contextPath}/resources/img/style.jpeg" alt="스타일사진">
-								<p class="nname">개똥벌레</p>
-								<p>예뻐요...!쵴고</p>
-							</div>
-							<div class="style">
-								<img src="${pageContext.request.contextPath}/resources/img/style.jpeg" alt="스타일사진">
-								<p class="nname">개똥벌레</p>
-								<p>예뻐요...!쵴고</p>
-							</div>
-							<div class="style">
-								<img src="${pageContext.request.contextPath}/resources/img/style.jpeg" alt="스타일사진">
-								<p class="nname">개똥벌레</p>
-								<p>예뻐요...!쵴고</p>
-							</div>
-							<div class="style">
-								<img src="${pageContext.request.contextPath}/resources/img/style.jpeg" alt="스타일사진">
-								<p class="nname">개똥벌레</p>
-								<p>예뻐요...!쵴고</p>
+							<div class="style grid-item">
+								<a href="">
+									<img src="${pageContext.request.contextPath}/resources/img/style.jpeg" alt="스타일사진">
+									<p class="nname">개똥벌레</p>
+									<p>예뻐요...!쵴고</p>
+								</a>
 							</div>
 						</div>
 				</div>
@@ -228,6 +289,7 @@
 			</div>
 		</div>
 	</div>
+	<!--footer----------------------------------------------->
 	<footer>
 		<div class="full_box">
 			<div class="Information_box">
@@ -241,6 +303,8 @@
 			</div>
 		</div>
 	</footer>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 	<script>
 		$(document).ready(function () {

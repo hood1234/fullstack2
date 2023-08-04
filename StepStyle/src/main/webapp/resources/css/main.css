@@ -92,6 +92,7 @@ header {
 }
 .banner img {
   width: 1320px;
+  height: 480px;
 }
 .swiper {
   z-index: -1;

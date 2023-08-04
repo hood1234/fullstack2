@@ -11,8 +11,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.0.4/swiper-bundle.min.css"/>
   </head>
   <body>
-  
-  <!-- ---------------------------------------헤더 영역--------------------------------------------- -->
     <header>
       <div class="wrap">
         <div class="main_nav">
@@ -22,8 +20,8 @@
             </h1>
             <nav>
               <ul class="nav">
-                <li><a href="board/shoesPage.do">SHOES</a></li>
-                <li><a href="">STYLE</a></li>
+                 <li><a href="board/shoesPage.do">SHOES</a></li>
+                 <li><a href="board/stylePage.do">STYLE</a></li>
                 <li><a href="">DROP</a></li>
                 <li><a href="board/community.do">COMMUNITY</a></li>
               </ul>
@@ -39,15 +37,15 @@
         </div>
       </div>
     </header>
-    
-      <!-- ---------------------------------------헤더 영역--------------------------------------------- -->
-    
     <div class="container">
       <div class="container_sel">
         <div class="swiper swiper1">
           <div class="banner swiper-wrapper">
             <a href="" class="swiper-slide"><img src="resources/img/main-slid1.png" alt="메인슬라이드"/></a>
             <a href="" class="swiper-slide"><img src="resources/img/main-slid2.png" alt="메인슬라이드"/></a>
+            <a href="" class="swiper-slide"
+              ><img src="resources/img/main-slid3.png" alt="메인슬라이드"
+            /></a>
           </div>
           <div class="swiper-button-prev"></div>
           <div class="swiper-button-next"></div>

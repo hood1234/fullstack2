@@ -27,6 +27,29 @@
 		 where uId = #{uId}
 	</select>
 
+	<insert id="insert" parameterType="userVO">
+		INSERT INTO usertb(
+			 uId
+			,uPw
+			,uName
+			,uNick
+			,uPhone
+			,uMail
+			,uAdr
+			,uGrade
+			,uDel
+		)VALUES(
+			 #{uId}
+			,#{uPw}
+			,#{uName}
+			,#{uNick}
+			,#{uPhone}
+			,#{uMail}
+			,#{uAdr}
+			,'B'
+			,'N'
+		)
+	</insert>
 		
 		
 	

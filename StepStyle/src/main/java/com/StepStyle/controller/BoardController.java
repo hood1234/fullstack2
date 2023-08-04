@@ -1,12 +1,7 @@
 package com.StepStyle.controller;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
-
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,16 +10,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.StepStyle.service.BoardService;
 import com.StepStyle.vo.BoardVO;
 
 @Controller
-@RequestMapping("/board")
+@RequestMapping(value = "/board", produces = "text/html; charset=UTF-8")
 public class BoardController {
 
-	
     @Autowired
     private BoardService boardService;
 
@@ -34,99 +27,91 @@ public class BoardController {
         model.addAttribute("community", community);
         return "board/community";
     }
-    
+
     @RequestMapping(value = "/search.do", method = RequestMethod.GET)
     public String searchBoard(@RequestParam("keyword") String keyword, Model model) {
-        // °Ë»ö¾î¸¦ ÅëÇØ °Ô½Ã¹°À» °Ë»öÇÕ´Ï´Ù.
         List<BoardVO> searchResult = boardService.searchBoardByKeyword(keyword);
-
-        // °Ë»ö °á°ú¸¦ ¸ğµ¨¿¡ Ãß°¡ÇÏ¿© JSP¿¡¼­ »ç¿ëÇÒ ¼ö ÀÖµµ·Ï ÇÕ´Ï´Ù.
         model.addAttribute("community", searchResult);
-
-        // community.jsp·Î ÀÌµ¿ÇÕ´Ï´Ù. (°Ë»ö °á°ú¸¦ Ç¥½ÃÇÏ±â À§ÇÔ)
         return "board/community";
     }
-    
+
     @RequestMapping("/view.do")
     public String viewBoard(@RequestParam("bidx") int bidx, Model model) {
-        BoardVO board = boardService.selectOneByBidx(bidx); // º¯°æµÈ ºÎºĞ
+        BoardVO board = boardService.selectOneByBidx(bidx);
         model.addAttribute("board", board);
         return "board/view";
     }
-    
+
     @RequestMapping("/shoesPage.do")
     public String shoesPage() {
-    	return "board/shoesPage";
+        return "board/shoesPage";
+    }
+
+    @RequestMapping("/shoesDataPage.do")
+    public String shoesDataPage() {
+        return "board/shoesDataPage";
     }
     
-    @RequestMapping("/shoesDetaPage.do")
-    public String shoesDetaPage() {
-    	return "board/shoesDetaPage";
+    @RequestMapping("/stylePage.do")
+    public String stylePage() {
+        return "board/stylePage";
     }
     
+    @RequestMapping("/styleDataPage.do")
+    public String styleDataPage() {
+        return "board/styleDataPage";
+    }
+    
+    
+
     @RequestMapping(value = "/write.do", method = RequestMethod.GET)
     public String showWriteForm(Model model) {
-        // ±Û ÀÛ¼º ÆûÀ» º¸¿©ÁÖ±â À§ÇØ ºó BoardVO °´Ã¼¸¦ Model¿¡ Ãß°¡
         model.addAttribute("board", new BoardVO());
-        return "board/write"; // ±Û ÀÛ¼º Æû ÆäÀÌÁö·Î ÀÌµ¿
+        return "board/write";
     }
-    
-    
+
     @RequestMapping(value = "/write.do", method = RequestMethod.POST)
     public String insertBoard(@ModelAttribute BoardVO vo) {
-    	 // ±Û ÀÛ¼º ½Ã°£À» ÇöÀç ½Ã°£À¸·Î ¼³Á¤
-    	vo.setWdate(new Date());
-        // ±Û ÀÛ¼ºÀ» À§ÇÑ ¼­ºñ½º ¸Ş¼­µå¸¦ È£ÃâÇÏ¿© µ¥ÀÌÅÍº£ÀÌ½º¿¡ ±Û ÀúÀåÇÏ±â
+        vo.setWdate(new Date());
         boardService.insertBoard(vo);
-        return "redirect:/board/community.do"; // ±Û ÀÛ¼º ÈÄ, ¸ñ·Ï ÆäÀÌÁö·Î ¸®´ÙÀÌ·ºÆ®
+        return "redirect:/board/community.do";
     }
-    
-    
+
     @RequestMapping(value = "/delete.do", method = RequestMethod.POST)
     public String delete(@RequestParam("bidx") int bidx, Model model) {
         int result = boardService.deleteBoard(bidx);
 
         if (result > 0) {
-            // »èÁ¦ ¼º°ø ½Ã ¸Ş½ÃÁö¸¦ ¸ğµ¨¿¡ Ãß°¡ÇÏ¿© È­¸é¿¡ º¸¿©ÁÜ
-            model.addAttribute("message", "»èÁ¦µÇ¾ú½À´Ï´Ù.");
+            model.addAttribute("message", "ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.");
         } else {
-            // »èÁ¦ ½ÇÆĞ ½Ã ¸Ş½ÃÁö¸¦ ¸ğµ¨¿¡ Ãß°¡ÇÏ¿© È­¸é¿¡ º¸¿©ÁÜ
-            model.addAttribute("message", "»èÁ¦µÇÁö ¾Ê¾Ò½À´Ï´Ù.");
+            model.addAttribute("message", "ì‚­ì œí•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
         }
 
-        // »èÁ¦ ÈÄ Ä¿¹Â´ÏÆ¼ ÆäÀÌÁö·Î ¸®´ÙÀÌ·ºÆ®
         return "redirect:/board/community.do";
     }
-    
+
     @RequestMapping(value = "/modify", method = RequestMethod.GET)
     public String showUpdateForm(@RequestParam("bidx") int bidx, Model model) {
         BoardVO board = boardService.selectOneByBidx(bidx);
         if (board != null) {
             model.addAttribute("board", board);
-            return "board/modify"; // ¼öÁ¤ ÆäÀÌÁö¸¦ º¸¿©Áİ´Ï´Ù.
+            return "board/modify";
         } else {
-            // ÇØ´ç °Ô½Ã±ÛÀÌ ¾øÀ» °æ¿ì¿¡ ´ëÇÑ ¿¹¿Ü Ã³¸® ·ÎÁ÷
-            return "error"; // ¿¹¿Ü Ã³¸® ÆäÀÌÁö¸¦ º¸¿©Áİ´Ï´Ù.
+            return "error";
         }
     }
 
-    // °Ô½Ã±Û ¼öÁ¤ Ã³¸®¸¦ À§ÇÑ ÇÚµé·¯
     @RequestMapping(value = "/modify", method = RequestMethod.POST)
     public String updateBoard(@ModelAttribute BoardVO vo, Model model) {
-        // ÇöÀç ½Ã°£À» ¼³Á¤ÇÏ¿© wdate °ªÀ» °»½Å
         vo.setWdate(new Date());
 
         int result = boardService.updateBoard(vo);
         if (result > 0) {
-            // ¼öÁ¤ ¼º°ø ½Ã ¸Ş½ÃÁö¸¦ ¸ğµ¨¿¡ Ãß°¡ÇÏ¿© È­¸é¿¡ º¸¿©ÁÜ
-            model.addAttribute("message", "¼öÁ¤µÇ¾ú½À´Ï´Ù.");
+            model.addAttribute("message", "ìˆ˜ì •ë˜ì—ˆìŠµë‹ˆë‹¤.");
         } else {
-            // ¼öÁ¤ ½ÇÆĞ ½Ã ¸Ş½ÃÁö¸¦ ¸ğµ¨¿¡ Ãß°¡ÇÏ¿© È­¸é¿¡ º¸¿©ÁÜ
-            model.addAttribute("message", "¼öÁ¤µÇÁö ¾Ê¾Ò½À´Ï´Ù.");
+            model.addAttribute("message", "ìˆ˜ì •í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
         }
-        // ¼öÁ¤ ÈÄ »ó¼¼ ÆäÀÌÁö·Î ¸®´ÙÀÌ·ºÆ®
+
         return "redirect:/board/view.do?bidx=" + vo.getBidx();
     }
-    
- 
 }

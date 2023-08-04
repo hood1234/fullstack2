@@ -29,13 +29,13 @@
               /></a>
             </h1>
             <nav>
-              <ul class="nav">
-                <li><a href="${pageContext.request.contextPath}/board/shoesPage.do">SHOES</a></li>
-                <li><a href="">STYLE</a></li>
-                <li><a href="">DROP</a></li>
-                <li><a href="community.do">COMMUNITY</a></li>
-              </ul>
-            </nav>
+						<ul class="nav">
+							<li><a href="${pageContext.request.contextPath}/board/shoesPage.do">SHOES</a></li>
+							<li><a href="${pageContext.request.contextPath}/board/stylePage.do">STYLE</a></li>
+							<li><a href="">DROP</a></li>
+							<li><a href="${pageContext.request.contextPath}/board/community.do">COMMUNITY</a></li>
+						</ul>
+					</nav>
           </div>
           <div class="submitBox">
             <form action="" method="post">
@@ -50,7 +50,7 @@
   <div class="board">
         <div>
             <h2>자유게시판</h2>
-            <button><a href="${pageContext.request.contextPath}/board/write.do">글 작성</a></button>
+            <button type="button" onclick="moveToBoardWritePage()">글 작성</button>
         </div>
         <table border="0" width="100%">
             <tr>
@@ -105,5 +105,14 @@
         </div>
       </div>
     </footer>
+    <script>
+		function moveToBoardWritePage() {
+		  // 현재 페이지의 contextPath를 가져옵니다. (예: /myapp)
+		  const contextPath = "${pageContext.request.contextPath}";
+		
+		  // 글 작성 페이지로 이동합니다.
+		  window.location.href = contextPath + "/board/write.do";
+		}
+</script>
   </body>
 </html>

@@ -1,0 +1,352 @@
+@charset "UTF-8";
+
+body {
+  line-height: 1;
+  width: 100%;
+  margin: 0 auto;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.wrap {
+  width: 100%;
+  height: 62px;
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.08);
+}
+.main_nav {
+  display: flex;
+  width: 1320px;
+  height: 100%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+}
+.navBox {
+  display: flex;
+  align-items: center;
+}
+.nav {
+  display: flex;
+}
+.submitBox {
+  display: flex;
+  position: relative;
+}
+.nav a {
+  font-weight: bold;
+  color: #7e7e7e;
+  font-size: 15px;
+}
+.nav a:hover {
+  color: black;
+}
+.nav li {
+  margin-right: 15px;
+}
+.submitBox form {
+  padding: 20px 5px;
+  margin-right: 70px;
+}
+form {
+  position: relative;
+}
+.submitBox > form input {
+  width: 100%;
+  border: 1px solid #7e7e7e;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 15px;
+}
+.submitBox > form i {
+  position: absolute;
+  margin: 0;
+  top: 30px;
+  right: -10px;
+}
+.submitBox > a > i {
+  position: absolute;
+  right: 18px;
+  top: 30px;
+}
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 100;
+}
+
+/*----------------------------header------------------------------------*/
+
+.container{
+	padding: 110px 0 110px;
+	width: 640px;
+	margin: 0 auto;
+}
+.swiper-wrapper > img{
+	width: 640px;
+	height: auto;
+}
+.user-name{
+	font-size: 15px;
+  display: flex;
+}
+.user-name > img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(34,34,34,.1);
+}
+.user-name p{
+	margin: 10px 0 10px 5px;
+}
+.user-name p:nth-child(1){
+	font-weight: bold;
+	margin-bottom: -5px;
+}
+.user-name p:nth-child(2){
+	color: rgba(34, 34, 34, 0.5);
+}
+
+.shoes-tag img{
+  width: 112px;
+  height: 112px;
+  border-radius: 10px;
+}
+.shoes-tag {
+  width: 112px;
+  padding: 13px 0 15px;
+  font-size: 14px;
+}
+.shoes-tag a > p{
+  margin-top: 5px;
+  font-size: 13px;
+  display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.icon > button{
+  border: none;
+  background: #fff;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+.icon > i{
+  margin-right: 20px;
+}
+.icon > p{
+  font-size: 13px;
+  word-spacing: -1px;
+  margin-top: 15px;
+}
+.textBox{
+  word-spacing: -1px;
+  font-size: 15px;
+  padding: 20px 0 60px;
+}
+.textBox > p{
+  padding-bottom: 40px;
+  margin: 0;
+}
+.textBox > span{
+  color: #297dcb;
+}
+.use-styleBox{
+  padding: 25px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+.use-styleBox > p{
+  font-weight: bold;
+}
+.use-style{
+  display: flex;
+  justify-content: space-between;
+}
+.use-style > img{
+  width: 150px;
+  border-radius: 10px;
+}
+.swiper-button-next{
+  width: 34px!important;
+}
+.swiper-button-prev{
+  width: 34px!important;
+}
+.swiper-button-next > div {
+  width: 34px;
+  height: 34px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 4px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.swiper-button-prev > div {
+  width: 34px;
+  height: 34px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 4px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  color: rgba(255, 255, 255, 0.3);
+  display: none;
+}
+.swiper-button-next img{
+  z-index: 20;
+}
+.swiper-wrapper{
+  width: 640px;
+}
+.comments-section{
+  height: 100%;
+  width: 400px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  z-index: 999;
+  display: none;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
+}
+.title{
+  padding: 40px 20px 30px;
+  display: flex;
+  align-items: center;
+}
+.title> button{
+  cursor: pointer;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+}
+.title > h2{
+  padding: 0 0 3px 5px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.user{
+  padding: 0 20px 10px;
+  display: flex;
+}
+.comments-sec img{
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(34,34,34,.1);
+}
+.user > div{
+  margin-left: 10px;
+}
+.user span:nth-child(1){
+  font-weight: bold;
+  font-size: 15px;
+}
+.user span:nth-child(2){
+  font-size: 14px;
+}
+.user p{
+  font-size: 13px;
+  color: rgba(34, 34, 34, 0.5);
+  letter-spacing: -1px;
+  margin-top: 5px;
+}
+.comment-write{
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.comment-write input{
+  width: 315px;
+  height: 40px;
+  margin-left: 5px;
+  border: 1px solid rgba(34,34,34,.1);
+  border-radius: 20px;
+  background-color: #fafafa;
+  color: #222;
+  outline: none;
+}
+.comment-write input::placeholder{
+  color: rgba(34,34,34,.3);
+}
+.comment-write > button{
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: bold;
+  width: 50px;
+  position: absolute;
+  right: 25px;
+}
+.comment{
+  height: 100%;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding-top: 266px;
+}
+.aa{
+  position: fixed;
+  background-color: #fff;
+}
+.comment-box {
+  display: flex;
+  padding: 10px 20px 5px;
+}
+.comment-box > div{
+  margin-left: 10px;
+}
+.comment-box span:nth-child(1){
+  font-weight: bold;
+  font-size: 15px;
+}
+.comment-box span:nth-child(2){
+  font-size: 14px;
+}
+.comment-box p{
+  font-size: 13px;
+  color: rgba(34, 34, 34, 0.5);
+  letter-spacing: -1px;
+  margin-top: 5px;
+}
+.sub{
+  display: flex;
+}
+.sub > p:nth-child(2){
+  margin-left: 10px;
+  cursor: pointer;
+  color: rgba(34, 34, 34, 0.7);
+  font-weight: bold;
+}
+
+/*---------------footer-----------------------------------------*/
+
+.full_box {
+  background-color: #101113;
+  padding: 50px 0 50px;
+}
+.Information_box p {
+  color: #a5a5a7;
+  font-size: 12px;
+  margin-left: 300px;
+}
+.Information_box p:nth-child(2) {
+  margin-top: -5px;
+}
+.Information_box p:nth-child(3) {
+  padding-top: 10px;
+}
+.Information_box p:nth-child(4) {
+  padding-top: 70px;
+}
