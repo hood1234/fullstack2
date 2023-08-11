@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>로그인 화면</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+  	<script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js"></script>
   </head>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </html>
@@ -160,12 +162,12 @@
           <hr class="my-4">
 				
 				
-          <button class="w-49 py-3 p-4 btn btn-outline-warning rounded-3" type="submit">
-            <svg class="bi me-1 " width="16" height="16"><use xlink:href="#twitter"/></svg>
-          카카오톡 로그인</button>
-          <button class="w-49 py-3 p-4  btn btn-outline-success rounded-3 " type="submit">
-            <svg class="bi me-1" width="16" height="16"><use xlink:href="#facebook"/></svg>
-          네이버 로그인</button>
+        <button class="w-49 py-3 p-4 btn btn-outline-warning rounded-3" id="kakao-login-btn">
+  			카카오톡 로그인
+		</button>
+        <button class="w-49 py-3 p-4 btn btn-outline-success rounded-3" id="naver-login-btn">
+			  네이버 로그인
+		</button>
           <br>
           <br>
           <small class="text-muted"><a href="">아이디 찾기</a> / <a href="">비밀번호 찾기</a></small>
@@ -177,6 +179,41 @@
   </div>
 </div>
 
-
+<script>
+  // 카카오 로그인 버튼 클릭 시
+  document.getElementById('kakao-login-btn').addEventListener('click', function() {
+    // 카카오 로그인 초기화
+    Kakao.init('YOUR_KAKAO_CLIENT_ID');
+    
+    // 카카오 로그인 창 열기
+    Kakao.Auth.login({
+      success: function(authObj) {
+        // 로그인 성공 시 처리할 로직
+        console.log('로그인 성공:', authObj);
+        // 이후 필요한 처리를 추가하십시오.
+      },
+      fail: function(err) {
+        // 로그인 실패 시 처리할 로직
+        console.error('로그인 실패:', err);
+        // 이후 필요한 처리를 추가하십시오.
+      }
+    });
+  });
+</script>
+<script>
+  // 네이버 로그인 버튼 클릭 시
+  document.getElementById('naver-login-btn').addEventListener('click', function() {
+    // 네이버 로그인 초기화
+    var naverLogin = new naver.LoginWithNaverId({
+      clientId: 'u2xtbdaH2D2tIDl9ylXM',
+      callbackUrl: '${pageContext.request.contextPath}/user/login.do',
+      isPopup: true, /* 팝업을 통한 연동처리 여부 */
+      loginButton: { color: 'green', type: 3, height: 60 } /* 버튼 디자인 및 타입 설정 */
+    });
+    
+    // 네이버 로그인 창 열기
+    naverLogin.init();
+  });
+</script>
 </body>
 </html>

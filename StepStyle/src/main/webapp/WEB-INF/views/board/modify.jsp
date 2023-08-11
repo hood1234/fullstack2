@@ -79,7 +79,7 @@
             </tr>
             <tr>
                 <td style="text-align: center; width: 500px;">작성자</td>
-                <td>&nbsp;<input type="text" id="uId" name="uId" value="${board.uId}" readonly></td>
+                <td>&nbsp;<input type="text" id="uId" name="uId" value="${board.uId}" disabled></td>
             </tr>
             <tr>
                 <td colspan="2">

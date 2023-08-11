@@ -40,6 +40,15 @@
            OR body LIKE CONCAT('%', #{keyword}, '%')
         ORDER BY wdate DESC;
     </select>
-
+ <!-- 게시글 목록 조회 (페이징) -->  
+ <select id="getPaginatedBoardList" parameterType="map" resultType="com.StepStyle.vo.BoardVO">
+        SELECT * FROM boardTB2
+        ORDER BY wdate DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+<!-- 게시물 전체 수 가져오기 -->
+<select id="getBoardCount" resultType="int">
+    SELECT COUNT(*) FROM boardTB2;
+</select>
 
 </mapper>

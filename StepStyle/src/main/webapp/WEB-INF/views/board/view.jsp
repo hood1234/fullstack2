@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -70,14 +72,10 @@
 						</td>
 					</tr>
 				</table>
-								
-		       
-			
-			<button class="butn" onclick="location.href='${pageContext.request.contextPath}/board/modify.do?bidx=${board.bidx}'">수정하기</button>
-			<button class="butn" id="deleteButton">삭제하기</button>
-			
-		</div>
-       			
+		<c:if test="${login != null && login.uId eq board.uId}">				
+        <button class="butn" onclick="location.href='${pageContext.request.contextPath}/board/modify.do?bidx=${board.bidx}'">수정하기</button>
+        <button class="butn" id="deleteButton">삭제하기</button>
+       	</c:if>		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<script>
 		  $(document).ready(function() {

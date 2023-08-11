@@ -12,5 +12,8 @@ public interface BoardService {
     int deleteBoard(int bidx);
 	BoardVO selectOneByBidx(int bidx);
 	List<BoardVO> searchBoardByKeyword(String keyword);
+	
+	List<BoardVO> getPaginatedBoardList(int offset, int pageSize);
+    int getBoardCount();
 }
 

@@ -1,5 +1,7 @@
 package com.StepStyle.dao;
 
+import java.util.Map;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -40,4 +42,18 @@ public class BoardDAO {
 	public List<BoardVO> searchBoardByKeyword(String keyword) {
 		return sqlSession.selectList(namespace + ".searchBoardByKeyword", keyword);
 	}
+	
+	 // 페이징 처리된 게시물 목록 가져오기
+	public List<BoardVO> getPaginatedBoardList(int offset, int pageSize) {
+	    Map<String, Object> paramMap = new HashMap<>();
+	    paramMap.put("offset", offset);
+	    paramMap.put("pageSize", pageSize);
+	    return sqlSession.selectList(namespace + ".getPaginatedBoardList", paramMap);
+	}
+
+    // 전체 게시물 수 가져오기
+    public int getBoardCount() {
+        return sqlSession.selectOne(namespace + ".getBoardCount");
+    }
+	
 }

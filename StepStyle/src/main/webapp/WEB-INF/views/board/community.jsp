@@ -49,7 +49,7 @@
     </header>
   <div class="board">
         <div>
-            <h2>자유게시판</h2>
+            <h2><a href:"${pageContext.request.contextPath}/board/community.do">자유게시판</a></h2>
             <button type="button" onclick="moveToBoardWritePage()">글 작성</button>
         </div>
         <table border="0" width="100%">
@@ -84,14 +84,48 @@
                 </c:forEach>
             </c:if>
         </table>
-        <div class="submitBox">
+<!-- 페이징 인덱스 표시 -->
+<c:if test="${totalPages > 1}">
+    <div class="paging" style="margin-top: 20px; margin-left: 500px; margin-right: 500px; text-align: center; overflow: hidden;">
+        <c:choose>
+            <c:when test="${currentPage > 1}">
+                <a href="${pageContext.request.contextPath}/board/community.do?page=${currentPage - 1}">&lt;</a>
+            </c:when>
+            <c:otherwise>
+                <span class="disabled">&lt;</span>
+            </c:otherwise>
+        </c:choose>
+
+        <c:forEach begin="1" end="${totalPages}" varStatus="loop">
+            <c:choose>
+                <c:when test="${loop.index == currentPage}">
+                    <span class="current">${loop.index}</span>
+                </c:when>
+                <c:otherwise>
+                    <a href="${pageContext.request.contextPath}/board/community.do?page=${loop.index}">${loop.index}</a>
+                </c:otherwise>
+            </c:choose>
+        </c:forEach>
+
+        <c:choose>
+            <c:when test="${currentPage < totalPages}">
+                <a href="${pageContext.request.contextPath}/board/community.do?page=${currentPage + 1}">&gt;</a>
+            </c:when>
+            <c:otherwise>
+                <span class="disabled">&gt;</span>
+            </c:otherwise>
+        </c:choose>
+    </div>
+</c:if>
+        <div class="submitBox" style="display: flex; justify-content: center;">
             <!-- 검색 폼 -->
             <form action="${pageContext.request.contextPath}/board/search.do" method="get">
-                <input type="text" name="keyword" placeholder="검색어를 입력하세요" /><button><i class="fa fa-search" aria-hidden="true"></i></button>
+                <input type="text" name="keyword" placeholder="검색어를 입력하세요" /><i class="fa fa-search" aria-hidden="true"></i>
             </form>
+
         </div>
-        <p>&lt; 1 2 3 4 5 6 7 8 9 &gt;</p>
     </div>
+    
     <footer>
       <div class="full_box">
         <div class="Information_box">
@@ -105,14 +139,23 @@
         </div>
       </div>
     </footer>
-    <script>
-		function moveToBoardWritePage() {
-		  // 현재 페이지의 contextPath를 가져옵니다. (예: /myapp)
-		  const contextPath = "${pageContext.request.contextPath}";
-		
-		  // 글 작성 페이지로 이동합니다.
-		  window.location.href = contextPath + "/board/write.do";
-		}
+
+<script>
+    function moveToBoardWritePage() {
+        // 현재 페이지의 contextPath를 가져옵니다. (예: /myapp)
+        const contextPath = "${pageContext.request.contextPath}";
+        
+        // 로그인 여부 확인
+        const isLoggedIn = ${not empty login}; // login 변수가 비어있지 않은 경우에 로그인된 상태로 간주
+        
+        if (isLoggedIn) {
+            // 로그인된 상태이면 글 작성 페이지로 이동
+            window.location.href = contextPath + "/board/write.do";
+        } else {
+            // 로그인되어 있지 않은 상태이면 로그인 페이지로 이동
+            window.location.href = contextPath + "/user/login.do";
+        }
+    }
 </script>
   </body>
 </html>

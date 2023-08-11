@@ -51,6 +51,17 @@ public class BoardServiceImpl implements BoardService {
     }
 
 
+	 @Override
+	    public List<BoardVO> getPaginatedBoardList(int offset, int pageSize) {
+	        return boardDAO.getPaginatedBoardList(offset, pageSize);
+	    }
+
+	    @Override
+	    public int getBoardCount() {
+	        return boardDAO.getBoardCount();
+	    }
+
+
 
 
 

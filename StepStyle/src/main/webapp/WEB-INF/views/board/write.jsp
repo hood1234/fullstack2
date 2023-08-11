@@ -96,7 +96,7 @@
 					</tr>
 					<tr>
 						<td style="text-align: center; width: 500px;">작성자</td>
-						<td>&nbsp;<input type="text" id="uId" name="uId"></td>
+						 <td>&nbsp;<input type="text" id="uId" name="uId" value="${login.uId}" disabled></td>			
 					</tr>
 					 
 					
