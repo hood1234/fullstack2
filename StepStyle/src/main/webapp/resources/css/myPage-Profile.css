@@ -1,0 +1,154 @@
+@charset "UTF-8";
+
+body {
+  line-height: 1;
+  width: 100%;
+  margin: 0 auto;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.wrap {
+  width: 100%;
+  height: 62px;
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.08);
+}
+.main_nav {
+  display: flex;
+  width: 1320px;
+  height: 100%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+}
+.navBox {
+  display: flex;
+  align-items: center;
+}
+.nav {
+  display: flex;
+}
+.submitBox {
+  display: flex;
+  position: relative;
+}
+.nav a {
+  font-weight: bold;
+  color: #7e7e7e;
+  font-size: 15px;
+}
+.nav a:hover {
+  color: black;
+}
+.nav li {
+  margin-right: 15px;
+}
+form {
+  padding: 20px 5px;
+  margin-right: 70px;
+}
+form {
+  position: relative;
+}
+.submitBox > form input {
+  width: 100%;
+  border: 1px solid #7e7e7e;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 15px;
+}
+.submitBox > form i {
+  position: absolute;
+  margin: 0;
+  top: 30px;
+  right: -10px;
+}
+.submitBox > a > i {
+  position: absolute;
+  right: 18px;
+  top: 30px;
+}
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 100;
+}
+
+/*-----------------------------------header css------------------------------------------*/
+
+.container{
+	margin: 0 auto;
+	width: 1320px;
+	padding-top: 120px;
+
+}
+.snb-area{
+	float: left;
+	width: 180px;
+	margin-right: 20px;
+}
+.snb-area h2{
+	font-size: 24px;
+	margin:0 0 40px 0;
+}
+.my-Information strong{
+	font-size: 18px;
+}
+.my-Information ul{
+	padding: 0;
+	margin-top: 20px;
+}
+.my-Information li{
+	margin-bottom: 15px;
+}
+.my-Information a{
+	font-size: 15px;
+	color: rgba(34,34,34,.5);
+	word-spacing: -1px;
+}
+
+.profile{
+	overflow: hidden;
+}
+.content-title{
+	padding-bottom: 25px;
+	border-bottom: 3px solid #000;
+}
+.content-title > h2{
+	font-size: 24px;
+	margin: 0;
+}
+.user-box{
+	display: flex;
+	padding: 38px 0;
+	border-bottom: 1px solid #ebebeb;
+}
+.user-info{
+	margin-left: 10px;
+	align-items: center;
+}
+.user-info p{
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 30px;
+}
+.user-info a{
+	border: 1px solid #d3d3d3;
+	border-radius: 10px;
+	height: 36px;
+	padding: 10px;
+	font-size: 12px;
+	color: rgba(34,34,34,.8);
+	letter-spacing: -1px;
+}
+.user-img img{
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}

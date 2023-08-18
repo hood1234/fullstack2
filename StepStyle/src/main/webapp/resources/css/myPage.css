@@ -1,0 +1,232 @@
+@charset "UTF-8";
+
+body {
+  line-height: 1;
+  width: 100%;
+  margin: 0 auto;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.wrap {
+  width: 100%;
+  height: 62px;
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.08);
+}
+.main_nav {
+  display: flex;
+  width: 1320px;
+  height: 100%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+}
+.navBox {
+  display: flex;
+  align-items: center;
+}
+.nav {
+  display: flex;
+}
+.submitBox {
+  display: flex;
+  position: relative;
+}
+.nav a {
+  font-weight: bold;
+  color: #7e7e7e;
+  font-size: 15px;
+}
+.nav a:hover {
+  color: black;
+}
+.nav li {
+  margin-right: 15px;
+}
+form {
+  padding: 20px 5px;
+  margin-right: 70px;
+}
+form {
+  position: relative;
+}
+.submitBox > form input {
+  width: 100%;
+  border: 1px solid #7e7e7e;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 15px;
+}
+.submitBox > form i {
+  position: absolute;
+  margin: 0;
+  top: 30px;
+  right: -10px;
+}
+.submitBox > a > i {
+  position: absolute;
+  right: 18px;
+  top: 30px;
+}
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 100;
+}
+
+/*-----------------------------------header css------------------------------------------*/
+
+
+.container{
+	margin: 0 auto;
+	width: 1320px;
+	padding-top: 120px;
+
+}
+.snb-area{
+	float: left;
+	width: 180px;
+	margin-right: 20px;
+}
+.snb-area h2{
+	font-size: 24px;
+	margin:0 0 40px 0;
+}
+.my-Information strong{
+	font-size: 18px;
+}
+.my-Information ul{
+	padding: 0;
+	margin-top: 20px;
+}
+.my-Information li{
+	margin-bottom: 15px;
+}
+.my-Information a{
+	font-size: 15px;
+	color: rgba(34,34,34,.5);
+	word-spacing: -1px;
+}
+.content-area{
+	min-height: 380px;
+	overflow: hidden;
+}
+.user-name{
+	border: 1px solid #ebebeb;
+	border-radius: 10px;
+	background-color: #fff;
+	padding: 23px 0 23px 23px;
+}
+.user-detail{
+	display: flex;
+}
+.user-info{
+	margin-left: 10px;
+}
+.user-info p{
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 30px;
+}
+.user-info a{
+	border: 1px solid #d3d3d3;
+	border-radius: 10px;
+	height: 36px;
+	padding: 10px;
+	font-size: 12px;
+	color: rgba(34,34,34,.8);
+	letter-spacing: -1px;
+}
+.user-img img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.logout{
+  margin-left: 700px;
+}
+.logout > a{
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+/*관심신발---------------------------*/
+
+.shoes-box{
+  margin-left: 30px;
+}
+.shoes{
+  margin-right:30px;
+  display: inline-block;
+}
+.img{
+  width: 231px;
+  height: 231px;
+  position: relative;
+}
+.img img{
+  width: 231px;
+  height: 231px;
+  border-radius: 8px;
+}
+.pick-shoes{
+  padding: 30px 0 50px;
+}
+.pick-shoes > p{
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.fa-bookmark{
+  position: absolute;
+  right: 15px;
+  bottom: 25px;
+}
+.text{
+  word-spacing: -1px;
+  padding: 10px 0 30px;
+}
+.text p{
+  font-size: 14px;
+  margin: 0;
+}
+.text p:first-child{
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.text p:nth-child(2){
+  margin-bottom: 15px;
+}
+.text span{
+  font-size: 12px;
+  color: rgba(34, 34, 34, 0.5);
+}
+
+
+.full_box {
+  background-color: #101113;
+  padding: 50px 0 50px;
+}
+.Information_box p {
+  color: #a5a5a7;
+  font-size: 12px;
+  margin-left: 300px;
+}
+.Information_box p:nth-child(2) {
+  margin-top: -5px;
+}
+.Information_box p:nth-child(3) {
+  padding-top: 10px;
+}
+.Information_box p:nth-child(4) {
+  padding-top: 70px;
+}
+
+/*-----------------------------------footer css------------------------------------------*/
